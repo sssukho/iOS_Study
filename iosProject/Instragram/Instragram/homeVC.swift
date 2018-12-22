@@ -26,8 +26,6 @@ class homeVC: UICollectionViewController {
         //always vertical scroll
         self.collectionView?.alwaysBounceVertical = true
         
-        
-        
         //background color
         collectionView?.backgroundColor = .white
         //title at the top
@@ -78,6 +76,7 @@ class homeVC: UICollectionViewController {
         })
     }
 
+    //cell numb
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return picArray.count
@@ -97,6 +96,12 @@ class homeVC: UICollectionViewController {
         }
         
         return cell
+    }
+    
+    // cell size
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+        let size = CGSize(width: self.view.frame.size.width / 3, height: self.view.frame.size.width / 3)
+        return size
     }
     
     // header config
@@ -207,6 +212,24 @@ class homeVC: UICollectionViewController {
         // present
         self.navigationController?.pushViewController(followings, animated: true)
     }
+    
+    //clicked logout
+    @IBAction func logout(_ sender: Any) {
+        
+        //implement log out
+        PFUser.logOutInBackground { (error) -> Void in
+            if error == nil {
+                
+                //remove logged in user from App memory
+                UserDefaults.standard.removeObject(forKey: "username")
+                UserDefaults.standard.synchronize()
+                let signin = self.storyboard?.instantiateViewController(withIdentifier: "signInVC") as! signInVC
+                let appDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.window?.rootViewController = signin
+            }
+        }
+    }
+    
 
 /*
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

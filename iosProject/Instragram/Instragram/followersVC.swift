@@ -181,4 +181,25 @@ class followersVC: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.view.frame.size.width / 4
     }
+
+    // selectd some user
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // recall cell to call further cell's data
+        let cell = tableView.cellForRow(at: indexPath) as! followersCell
+        
+        // if user tapped on himself, go home, else go guest
+        if cell.usernameLbl.text! == PFUser.current()!.username! {
+            let home = self.storyboard?.instantiateViewController(withIdentifier: "homeVC") as! homeVC
+            self.navigationController?.pushViewController(home, animated: true)
+        } else {
+            guestname.append(cell.usernameLbl.text!)
+            let guest = self.storyboard?.instantiateViewController(withIdentifier: "guestVC") as! guestVC
+            self.navigationController?.pushViewController(guest, animated: true)
+        }
+    }
+    
+    func back(_sender : UITabBarItem) {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
 }

@@ -11,7 +11,7 @@
         <!--Sign InVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="signInVC" customModule="Instragram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signInVC" id="BYZ-38-t0r" customClass="signInVC" customModule="Instragram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -401,7 +401,13 @@
                             <outlet property="delegate" destination="wa9-fq-M1Y" id="a0H-bu-N0Y"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="gnf-a6-84j"/>
+                    <navigationItem key="navigationItem" id="gnf-a6-84j">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="7MX-3h-wXo">
+                            <connections>
+                                <action selector="logout:" destination="wa9-fq-M1Y" id="ke5-cH-jIU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ece-CV-44t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -484,10 +490,10 @@
             </objects>
             <point key="canvasLocation" x="2434" y="143"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--GuestVC-->
         <scene sceneID="28Y-Zg-4zN">
             <objects>
-                <collectionViewController id="rRD-7o-5aV" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="guestVC" id="rRD-7o-5aV" customClass="guestVC" customModule="Instragram" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="UdB-sf-KLJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -591,9 +597,12 @@
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <state key="normal" title="FOLLOW">
-                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
+                                    <connections>
+                                        <action selector="followBtn_clicked:" destination="sOH-T4-QbF" eventType="touchUpInside" id="nFj-Fk-ulN"/>
+                                    </connections>
                                 </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pp" id="UyQ-bI-u17">
                                     <rect key="frame" x="21" y="8" width="80" height="80"/>

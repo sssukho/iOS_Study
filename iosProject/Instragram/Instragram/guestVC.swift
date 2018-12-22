@@ -32,6 +32,9 @@ class guestVC: UICollectionViewController {
         //top title
         self.navigationItem.title = guestname.last
         
+        //background color
+        self.collectionView.backgroundColor = .white
+        
         //new back button
         self.navigationItem.hidesBackButton = true
         let backBtn = UIBarButtonItem(image: UIImage(named: "back.png"), style: .plain, target: self, action: #selector(guestVC.back(_:)))
