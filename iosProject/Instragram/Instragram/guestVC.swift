@@ -291,6 +291,7 @@ class guestVC: UICollectionViewController {
     }
     
     // tapped posts label
+    // 마지막 인덱스로 스크롤 해라.
     @objc func postsTap() {
         if !picArray.isEmpty {
             let index = IndexPath(item: 0, section: 0)
@@ -303,7 +304,7 @@ class guestVC: UICollectionViewController {
         user = guestname.last!
         category = "followers"
         
-        // defind followersVC
+        // define followersVC
         let followers = self.storyboard?.instantiateViewController(withIdentifier: "followersVC") as! followersVC
         
         // navigate to it

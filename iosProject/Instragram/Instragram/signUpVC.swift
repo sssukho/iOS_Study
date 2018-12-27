@@ -131,7 +131,6 @@ class signUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         if (usernameTxt.text!.isEmpty || passwordTxt.text!.isEmpty || repeatPasswordTxt.text!.isEmpty || fullnameTxt.text!.isEmpty || bioTxt.text!.isEmpty || webTxt.text!.isEmpty || emailTxt.text!.isEmpty) {
             // alert message
             let alert = UIAlertController(title: "PLEASE", message: "fill all fields", preferredStyle: UIAlertController.Style.alert)
-            
             let ok = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler:nil)
             alert.addAction(ok)
             self.present(alert, animated: true, completion: nil)
