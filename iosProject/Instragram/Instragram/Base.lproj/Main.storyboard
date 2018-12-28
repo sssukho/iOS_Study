@@ -260,6 +260,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="3fl-Oo-jjt" kind="relationship" relationship="viewControllers" id="m3K-qS-G00"/>
+                        <segue destination="nga-Zj-zHC" kind="relationship" relationship="viewControllers" id="675-LI-v3X"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mha-SE-8Rt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -288,7 +289,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="nPS-AS-vOd">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pbg.png" id="nPS-AS-vOd">
                                             <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -416,6 +417,60 @@
             </objects>
             <point key="canvasLocation" x="3393" y="146"/>
         </scene>
+        <!--UploadVC-->
+        <scene sceneID="tpB-VF-eTe">
+            <objects>
+                <viewController storyboardIdentifier="uploadVC" id="gEZ-Xe-82m" customClass="uploadVC" customModule="Instragram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IbR-Np-Tmg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pbg.png" id="lSD-cb-BVS">
+                                <rect key="frame" x="15" y="79" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="GJr-5X-0hU">
+                                <rect key="frame" x="112" y="79" width="247" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nfh-GE-1Gh">
+                                <rect key="frame" x="0.0" y="578" width="375" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.35421489709999998" green="0.6997810297" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="PUBLISH">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="publishBtn_clicked:" destination="gEZ-Xe-82m" eventType="touchUpInside" id="6Cg-5N-zqg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xPe-an-GcO">
+                                <rect key="frame" x="16" y="157" width="69" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="remove"/>
+                                <connections>
+                                    <action selector="removeBtn_clicked:" destination="gEZ-Xe-82m" eventType="touchUpInside" id="a0j-2M-DYH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jpf-PO-6Aw"/>
+                    <connections>
+                        <outlet property="picImg" destination="lSD-cb-BVS" id="t0g-Lf-Tza"/>
+                        <outlet property="publishBtn" destination="nfh-GE-1Gh" id="c1u-IR-sam"/>
+                        <outlet property="removeBtn" destination="xPe-an-GcO" id="UDj-AY-Yqm"/>
+                        <outlet property="titleTxt" destination="GJr-5X-0hU" id="JHQ-Gs-8Pc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YZ1-U6-JDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3392.8000000000002" y="859.52023988005999"/>
+        </scene>
         <!--FollowersVC-->
         <scene sceneID="ord-lW-xrC">
             <objects>
@@ -515,7 +570,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="tT5-mX-mFC">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pbg.png" id="tT5-mX-mFC">
                                             <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -762,9 +817,29 @@
             </objects>
             <point key="canvasLocation" x="5757.6000000000004" y="144.3778110944528"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="ddK-Wn-vZh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nga-Zj-zHC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="E4u-Zw-uRb"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="d5y-pi-dcG">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gEZ-Xe-82m" kind="relationship" relationship="rootViewController" id="jUw-Kr-7cy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HXD-FX-Nis" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2433" y="860"/>
+        </scene>
     </scenes>
     <resources>
         <image name="DTS" width="316" height="256"/>
+        <image name="pbg.png" width="200" height="200"/>
         <image name="pp" width="96" height="96"/>
     </resources>
 </document>

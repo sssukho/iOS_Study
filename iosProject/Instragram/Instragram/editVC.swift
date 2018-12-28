@@ -196,53 +196,49 @@ class editVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UI
             return
         }
         
-//        // save filled in information
-//        let user = PFUser.current()!
-//        user.username = usernameTxt.text?.lowercased()
-//        user.email = emailTxt.text?.lowercased()
-//        user["fullname"] = fullnameTxt.text?.lowercased()
-//        user["web"] = webTxt.text?.lowercased()
-//        user["bio"] = bioTxt.text
-//
-//        // if "tel" is empty, send empty data, else entered data
-//        if telTxt.text!.isEmpty {
-//            user["tel"] = ""
-//        } else {
-//            user["tel"] = telTxt.text
-//        }
-//
-//        // if "gender" is empty, send empty data, else entered data
-//        if genderTxt.text!.isEmpty {
-//            user["gender"] = ""
-//        } else {
-//            user["gender"] = genderTxt.text
-//        }
-//
-//        // send profile picture
-//        let avaData = UIImageJPEGRepresentation(avaImg.image!, 0.5) {
-//            try? avaData.write(to: ava.jpg)
-//        }
-//        let avaFile = PFFileObject(name: "ava.jpg", data: avaData!)
-//        user["ava"] = avaFile
-//
-//        // send filled information to server
-//        user.saveInBackground (block: { (success, error) -> Void in
-//            if success{
-//
-//                // hide keyboard
-//                self.view.endEditing(true)
-//
-//                // dismiss editVC
-//                self.dismiss(animated: true, completion: nil)
-//
-//                // send notification to homeVC to be reloaded
-//                NotificationCenter.default.post(name: Notification.Name(rawValue: "reload"), object: nil)
-//
-//            } else {
-//                print(error!.localizedDescription)
-//            }
-//        })
-//
+        //save filed in information
+        let user = PFUser.current()!
+        user.username = usernameTxt.text?.lowercased()
+        user.email = emailTxt.text?.lowercased()
+        user["fullname"] = fullnameTxt.text?.lowercased()
+        user["web"] = webTxt.text?.lowercased()
+        user["bio"] = bioTxt.text
+        
+        // if "tel" is empty, send empty data, else entered data
+        if telTxt.text!.isEmpty {
+            user["tel"] = ""
+        } else {
+            user["tel"] = telTxt.text
+        }
+        
+        // if "gender" is empty, send empty data, else entered data
+        if genderTxt.text!.isEmpty {
+            user["gender"] = ""
+        } else {
+            user["gender"] = genderTxt.text
+        }
+        
+        // send profile pircture
+        //let avaData = avaImg.jpegData(0.5)
+        let avaData = avaImg.image?.jpegData(compressionQuality: 0.5)
+        let avaFile = PFFileObject(name: "ava.jpg", data: avaData!)
+        user["ava"] = avaFile
+        
+        // send filled information to server
+        user.saveInBackground(block: {(success, error) -> Void in
+            if success {
+                //hide keyboard
+                self.view.endEditing(true)
+                
+                //dismiss editVC
+                self.dismiss(animated: true, completion: nil)
+                
+                //send notification to homeVC to be reloaded
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "reload"), object: nil)
+            } else {
+                print(error!.localizedDescription)
+            }
+        })
     }
     
     //PICKER VIEW METHODS

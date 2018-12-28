@@ -35,6 +35,14 @@ class homeVC: UICollectionViewController {
         refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(homeVC.refresh), for: UIControl.Event.valueChanged)
         collectionView?.addSubview(refresher)
+        
+        // receive notification from editVC
+        NotificationCenter.default.addObserver(self, selector: #selector(homeVC.reload(_:)), name: NSNotification.Name(rawValue: "reload"), object: nil)
+        
+        // receive notification from uploadVC
+        NotificationCenter.default.addObserver(self, selector: #selector(homeVC.uploaded(_:)), name: NSNotification.Name(rawValue: "uploaded"), object: nil)
+        
+        // load posts func
         loadPosts()
     }
     
@@ -46,6 +54,16 @@ class homeVC: UICollectionViewController {
         
         //stop refresher animating
         refresher.endRefreshing()
+    }
+    
+    // reloading func after received notification
+    @objc func reload(_ notification:Notification) {
+        collectionView?.reloadData()
+    }
+    
+    // reloading func with posts after received notification
+    @objc func uploaded(_ notification:Notification) {
+        loadPosts()
     }
     
     func loadPosts() {
